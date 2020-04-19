@@ -27,7 +27,9 @@ app.layout = html.Div(
 @app.callback(Output("page-content","children"), [Input("url","pathname")])
 def display_page(pathname):
 	#if there's a file whose name we recognize in the path, create that page
-	if pathname.replace("/","") in page_dict:
+	if not pathname:
+		return page_dict["tutorial_1"].create_layout(app)
+	elif pathname.replace("/","") in page_dict:
 		return page_dict[pathname.replace("/","")].create_layout(app)
 	else:
 		return page_dict["tutorial_1"].create_layout(app)
