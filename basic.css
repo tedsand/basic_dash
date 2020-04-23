@@ -1,3 +1,10 @@
+.columns {
+  margin-left: 0 !important;
+}
+
+.row > .columns:not(:first-child) {
+  padding-left: 20px;
+}
 .all-tabs {
   text-align: center;
   font-size: 13px;
