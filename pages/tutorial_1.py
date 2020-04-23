@@ -1,4 +1,3 @@
-import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
@@ -17,8 +16,6 @@ def generate_table(df,max_rows=10):
 			]) for i in range(min(len(df), max_rows))
 		])
 	])
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 colors = {
 	'background': '#111111',

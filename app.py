@@ -9,9 +9,8 @@ from os import listdir
 page_options = [i.replace('.py','') for i in listdir("./pages") if '.py' in i]
 page_dict = {i:importlib.import_module("pages." + i) for i in page_options}
 
-
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css',
+						'https://github.com/tedsand/basic_dash/blob/master/basic.css']
 
 app = dash.Dash(__name__,external_stylesheets = external_stylesheets)
 
