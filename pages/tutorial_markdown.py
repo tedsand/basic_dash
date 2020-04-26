@@ -1,6 +1,7 @@
 import dash_core_components as dcc
 import dash_html_components as html
 from utils import Header
+from app import app
 
 markdown_text = '''
 ### Summary of fixing my multi-page dash app.
@@ -31,8 +32,7 @@ The fourth example looks like it's what I have to do. Define app and index as se
 into the intermediate pages and then reimport to index. This has working callbacks in separately defined pages, which is 
 issue I'm currently having.
 '''
-def create_layout(app):
-    return html.Div([
-        html.Div([Header(app)]),
-        dcc.Markdown(children=markdown_text)
-    ])
+layout =  html.Div([
+    html.Div([Header(app)]),
+    dcc.Markdown(children=markdown_text)
+])

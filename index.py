@@ -24,11 +24,11 @@ app.layout = html.Div(
 def display_page(pathname):
 	#if there's a file whose name we recognize in the path, create that page
 	if not pathname:
-		return page_dict["tutorial_1"].create_layout(app)
+		return page_dict["tutorial_1"].layout
 	elif pathname.replace("/","") in page_dict:
-		return page_dict[pathname.replace("/","")].create_layout(app)
+		return page_dict[pathname.replace("/","")].layout
 	else:
-		return page_dict["tutorial_1"].create_layout(app)
+		return page_dict["tutorial_1"].layout
 
 if __name__ == '__main__':
 	app.run_server(debug=True)

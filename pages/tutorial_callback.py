@@ -2,15 +2,14 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 from utils import Header
-
 from app import app
-def create_layout(app):
-    app.layout = html.Div([
-        html.Div([Header(app)]),
-        dcc.Input(id='my-id', value='initial value', type='text'),
-        html.Div(id='my-div')
-        ])
-    return app.layout
+
+layout = html.Div([
+    html.Div([Header(app)]),
+    dcc.Input(id='my-id', value='initial value', type='text'),
+    html.Div(id='my-div')
+    ])
+
 
 @app.callback(
     Output(component_id='my-div', component_property='children'),
