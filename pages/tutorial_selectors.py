@@ -56,4 +56,4 @@ def create_layout(app):
             marks={i: 'Label {}'.format(i) if i == 1 else str(i) for i in range(1, 6)},
             value=5,
         ),
-    ])
+    ]
