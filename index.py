@@ -1,5 +1,6 @@
 
 import dash_core_components as dcc
+import dash_bootstrap_components as dbc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import importlib
@@ -12,9 +13,6 @@ page_dict = {}
 for folder in page_options:
 	for page in page_options[folder]:
 		page_dict['/'.join(['',folder,page])] = importlib.import_module('.'.join(['pages',folder,page]))
-#page_dict = {i:importlib.import_module("pages." + i) for i in page_options}
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 colors = {
 	'background': '#111111',
