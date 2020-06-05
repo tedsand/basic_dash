@@ -6,8 +6,13 @@ import importlib
 from os import listdir
 from app import app
 
-page_options = [i.replace('.py','') for i in listdir("./pages") if '.py' in i]
-page_dict = {i:importlib.import_module("pages." + i) for i in page_options}
+folders = [i for i in listdir('./pages') if i not in ['.DS_Store','__pycache__']]
+page_options = {f:[i.replace('.py','') for i in listdir("./pages/"+ f) if '.py' in i] for f in folders}
+page_dict = {}
+for folder in page_options:
+	for page in page_options[folder]:
+		page_dict['/'.join(['',folder,page])] = importlib.import_module('.'.join(['pages',folder,page]))
+#page_dict = {i:importlib.import_module("pages." + i) for i in page_options}
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -24,11 +29,11 @@ app.layout = html.Div(
 def display_page(pathname):
 	#if there's a file whose name we recognize in the path, create that page
 	if not pathname:
-		return page_dict["tutorial_1"].layout
-	elif pathname.replace("/","") in page_dict:
-		return page_dict[pathname.replace("/","")].layout
+		return page_dict["/tutorial/tutorial_1"].layout
+	elif pathname in page_dict:
+		return page_dict[pathname].layout
 	else:
-		return page_dict["tutorial_1"].layout
+		return page_dict["/tutorial/tutorial_1"].layout
 
 if __name__ == '__main__':
 	app.run_server(debug=True)
