@@ -4,6 +4,7 @@ from dash.dependencies import Input, Output
 from utils import Header
 from app import app
 import numpy as np
+import pandas as pd
 
 #doing this one because I don't understand what it's doing from the example
 np.random.seed(0)
